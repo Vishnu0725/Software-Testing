@@ -1,0 +1,21 @@
+Test Case ID,Scenario,Preconditions,Test Steps,Test Data,Expected Result,Priority,Type,Automation Status
+TC01,Page load and movie details,Application is available,Open home page,/,Movie title and summary visible; booking button disabled,High,Smoke,Automated
+TC02,Select one seat,Page loaded,Click an available seat,A1,Seat shows selected; count=1; fee=₹18; total=₹198; booking enabled,High,Functional,Automated
+TC03,Select three seats,Page loaded,Click three available seats,A1 A2 B1,Count=3; fee=₹54; total=₹594,High,Functional,Automated
+TC04,Booked seat restriction,Page loaded,Attempt to click booked seat,A3,Seat is disabled and cannot be selected,High,Functional,Automated
+TC05,Deselect seat,One or more seats selected,Click already-selected seat,A1,Seat deselected and totals update,Medium,Functional,Automated
+TC06,Maximum seat boundary,Page loaded,Select six then attempt seventh,A1 A2 A5 A6 A7 A8 then B1,Count remains six; max-seat message appears,High,Boundary,Automated
+TC07,Date selection,Page loaded,Choose another date,Tomorrow,Summary and selected styling update,High,Functional,Automated
+TC08,Showtime selection,Page loaded,Choose another showtime,6:45 PM,Summary and selected styling update,High,Functional,Automated
+TC09,Clear selected seats,Seats selected,Click Clear selected seats,Selected seats,Count=0; seats cleared; fee/total zero; booking disabled,Medium,Functional,Automated
+TC10,Confirm booking,Seats/date/time selected,Click Confirm booking,2 seats Tomorrow 2:15 PM,Confirmation contains booking status, seats, date, time and ₹396,High,End-to-end,Automated
+TC11,Zero-seat booking guard,Page loaded,Observe/attempt booking with no seats,None,Confirm booking disabled,High,Negative,Automated via TC01/TC09
+TC12,Fee calculation for 2 tickets,Page loaded,Select two seats,A1 A2,Convenience fee equals ₹36,High,Calculation,Automated via TC03/TC10
+TC13,Seat selection limit exact six,Page loaded,Select six available seats,6 seats,All six selected; count=6,High,Boundary,Automated via TC06
+TC14,Date options,Page loaded,Select each date option,Today/Tomorrow/Friday,Each date updates summary,Medium,Functional,Manual/additional automation
+TC15,Showtime options,Page loaded,Select each showtime,10:30 AM/2:15 PM/6:45 PM/9:30 PM,Each time updates summary,Medium,Functional,Manual/additional automation
+TC16,Seat map count,Page loaded,Inspect rendered seat grid,56 seats total,Grid contains 56 positions; booked are disabled,Medium,UI,Manual
+TC17,Seat IDs and rows,Page loaded,Inspect seat labels,A1 through G8,Labels unique and consistent,Medium,UI,Manual
+TC18,Responsive view,Page loaded,Resize viewport to mobile width,375x812,Controls remain readable and usable,Medium,UI,Manual
+TC19,Refresh behavior,Seats selected,Refresh browser,Selected seats,Selection resets to default state,Low,Regression,Manual
+TC20,Booking message,Seats selected,Confirm booking,Selected seats,Success feedback is visible and accurate,High,Functional,Automated via TC10
